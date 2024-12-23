@@ -7,7 +7,6 @@
 body {
     width: 100vw;
     height: 100vh;
-    align-content: center;
 }
 
 .grid-piece {
@@ -20,11 +19,55 @@ body {
 }
 
 #container {
+    position: absolute;
+    top: calc(50vh - 250px);
+    left: calc(50vw - 250px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    border: 1px solid grey;
+    border: 8px solid grey;
     width: 500px;
     height: 500px;
-    margin-inline: auto;
+}
+
+#canvasSizeButton {
+    position: absolute;
+    left: calc(50vw - 50px);
+    top: calc((50vh - 250px) / 2 - 20px);
+    width: 100px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 520px) {
+    #container {
+        width: 320px;
+        height: 320px;
+        top: calc(50vh - 160px);
+        left: calc(50vw - 160px);
+    }
+
+    #canvasSizeButton {
+        width: 90px;
+        height: 36px;
+        top: calc((50vh - 160px) / 2 - 18px);
+        left: calc(50vw - 45px);
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-height: 630px) {
+    #container {
+        width: 320px;
+        height: 320px;
+        top: calc(50vh - 160px);
+        left: calc(50vw - 160px);
+    }
+
+    #canvasSizeButton {
+        width: 70px;
+        height: 30px;
+        top: calc((50vh - 160px) / 2 - 15px);
+        left: calc(50vw - 35px);
+        font-size: 9px;
+    }
 }

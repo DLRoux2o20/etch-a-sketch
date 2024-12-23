@@ -14,11 +14,13 @@ body {
     height: 25%;
     display: inline-block;
 }
+
 .grid-piece:hover {
     background-color: black;
 }
 
 #container {
+    box-sizing: content-box;
     position: absolute;
     top: calc(50vh - 250px);
     left: calc(50vw - 250px);

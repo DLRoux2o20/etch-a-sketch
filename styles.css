@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
-.flex {
-    
+body {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+}
+
+.grid-piece {
+    width: 25%;
+    height: 25%;
+    display: inline-block;
+}
+.grid-piece:hover {
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: 1px solid grey;
+    width: 500px;
+    height: 500px;
+    margin-inline: auto;
 }

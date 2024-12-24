@@ -1,14 +1,15 @@
 let container = document.getElementById("container");
 let canvasSizeButton = document.getElementById("canvasSizeButton");
-let counter = 0.1;
 
 for (let i = 0; i < 16; i++) {
     let gridPiece = document.createElement("div");
     container.appendChild(gridPiece);
     gridPiece.className = "grid-piece";
-    gridPiece.addEventListener("mouseover", function() {
+    gridPiece.style.opacity = "0";
+    gridPiece.addEventListener("mouseover", function(e) {
         randomValues();
-        gridPiece.style.cssText = `background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3});`
+        gridPiece.style.cssText = `background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3}); opacity: ${e.target.style.opacity};`;
+        e.target.style.opacity = `calc(${e.target.style.opacity} + 0.1)`;
     })
 }
 
@@ -29,11 +30,11 @@ canvasSizeButton.addEventListener("click", function() {
     for (let i = 0; i < canvasSize; i++) {
         let addedGridPiece = document.createElement("div");
         container.appendChild(addedGridPiece);
-        addedGridPiece.className = "hover";
-        addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block;`;
-        addedGridPiece.addEventListener("mouseover", function() {
+        addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block; opacity: 0;`;
+        addedGridPiece.addEventListener("mouseover", function(e) {
             randomValues();
-            addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block; background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3});`;
+            addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block; background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3}); opacity: ${e.target.style.opacity};`;
+            e.target.style.opacity =  `calc(${e.target.style.opacity} + 0.1)`;
         })
     }
 })

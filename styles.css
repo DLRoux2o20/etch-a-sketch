@@ -18,8 +18,8 @@ body {
 #container {
     box-sizing: content-box;
     position: absolute;
-    top: calc(50vh - 250px);
-    left: calc(50vw - 250px);
+    top: calc(50vh - 258px);
+    left: calc(50vw - 258px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -36,12 +36,12 @@ body {
     height: 40px;
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 570px) {
     #container {
         width: 320px;
         height: 320px;
-        top: calc(50vh - 160px);
-        left: calc(50vw - 160px);
+        top: calc(50vh - 168px);
+        left: calc(50vw - 168px);
     }
 
     #canvasSizeButton {
@@ -57,8 +57,8 @@ body {
     #container {
         width: 320px;
         height: 320px;
-        top: calc(50vh - 160px);
-        left: calc(50vw - 160px);
+        top: calc(50vh - 168px);
+        left: calc(50vw - 168px);
     }
 
     #canvasSizeButton {

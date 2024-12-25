@@ -39,13 +39,21 @@ buttonText.addEventListener("mouseout", function() {
 canvasSizeButton.addEventListener("click", function() {
     size = prompt("Choose a size between 1-100");
     canvasSize = size * size;
-    changeCanvasSize();
+    if (size > 100 || size < 1) {
+        alert("Invalid size");
+    } else {
+        changeCanvasSize();
+    } 
 })
 
 buttonText.addEventListener("click", function() {
     size = prompt("Choose a size between 1-100");
     canvasSize = size * size;
-    changeCanvasSize();
+    if (size > 100 || size < 1) {
+        alert("Invalid size");
+    } else {
+        changeCanvasSize();
+    }
 })
 
 function randomValues() {

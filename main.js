@@ -1,7 +1,10 @@
 let container = document.getElementById("container");
 let canvasSizeButton = document.getElementById("canvasSizeButton");
+let buttonText = document.getElementById("buttonText");
+let canvasSize = 0;
+let size = 0;
 
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 256; i++) {
     let gridPiece = document.createElement("div");
     container.appendChild(gridPiece);
     gridPiece.className = "grid-piece";
@@ -13,16 +16,46 @@ for (let i = 0; i < 16; i++) {
     })
 }
 
+canvasSizeButton.addEventListener("mouseover", function() {
+    canvasSizeButton.style.cssText = "transform: scale(1.1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+    buttonText.style.cssText = "transform: scale(1.1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+})
+    
+canvasSizeButton.addEventListener("mouseout", function() {
+    canvasSizeButton.style.cssText = "transform: scale(1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+    buttonText.style.cssText = "transform: scale(1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+})
+
+buttonText.addEventListener("mouseover", function() {
+    canvasSizeButton.style.cssText = "transform: scale(1.1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+    buttonText.style.cssText = "transform: scale(1.1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+})
+    
+buttonText.addEventListener("mouseout", function() {
+    canvasSizeButton.style.cssText = "transform: scale(1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+    buttonText.style.cssText = "transform: scale(1); transition-timing-function: linear; transition-duration: 0.5s; transition-delay: 0ms;";
+})
+
+canvasSizeButton.addEventListener("click", function() {
+    size = prompt("Choose a size between 1-100");
+    canvasSize = size * size;
+    changeCanvasSize();
+})
+
+buttonText.addEventListener("click", function() {
+    size = prompt("Choose a size between 1-100");
+    canvasSize = size * size;
+    changeCanvasSize();
+})
+
 function randomValues() {
     rgbValue1 = Math.floor(Math.random() * 255);
     rgbValue2 = Math.floor(Math.random() * 255);
     rgbValue3 = Math.floor(Math.random() * 255);
 }
 
-canvasSizeButton.addEventListener("click", function() {
-    let size = prompt("Choose a size between 1-100");
-    let canvasSize = size * size;
-    
+function changeCanvasSize() {
+
     while (container.hasChildNodes()) {
         container.removeChild(container.firstChild);
     }
@@ -37,4 +70,5 @@ canvasSizeButton.addEventListener("click", function() {
             e.target.style.opacity =  `calc(${e.target.style.opacity} + 0.1)`;
         })
     }
-})
+}
+    

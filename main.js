@@ -3,6 +3,7 @@ let canvasSizeButton = document.getElementById("canvasSizeButton");
 let buttonText = document.getElementById("buttonText");
 let canvasSize = 0;
 let size = 0;
+let validSize = 0;
 
 for (let i = 0; i < 256; i++) {
     let gridPiece = document.createElement("div");
@@ -38,20 +39,22 @@ buttonText.addEventListener("mouseout", function() {
 
 canvasSizeButton.addEventListener("click", function() {
     size = prompt("Choose a size between 1-100");
-    canvasSize = size * size;
     if (size > 100 || size < 1) {
         alert("Invalid size");
     } else {
+        validSize = size;
+        canvasSize = validSize * validSize;
         changeCanvasSize();
     } 
 })
 
 buttonText.addEventListener("click", function() {
     size = prompt("Choose a size between 1-100");
-    canvasSize = size * size;
     if (size > 100 || size < 1) {
         alert("Invalid size");
     } else {
+        validSize = size;
+        canvasSize = validSize * validSize;
         changeCanvasSize();
     }
 })
@@ -63,7 +66,7 @@ function randomValues() {
 }
 
 function changeCanvasSize() {
-
+    console.log("running");
     while (container.hasChildNodes()) {
         container.removeChild(container.firstChild);
     }
@@ -71,10 +74,10 @@ function changeCanvasSize() {
     for (let i = 0; i < canvasSize; i++) {
         let addedGridPiece = document.createElement("div");
         container.appendChild(addedGridPiece);
-        addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block; opacity: 0;`;
+        addedGridPiece.style.cssText = `width: calc(100% / ${validSize}); height: calc(100% / ${validSize}); display: inline-block; opacity: 0;`;
         addedGridPiece.addEventListener("mouseover", function(e) {
             randomValues();
-            addedGridPiece.style.cssText = `width: calc(100% / ${size}); height: calc(100% / ${size}); display: inline-block; background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3}); opacity: ${e.target.style.opacity};`;
+            addedGridPiece.style.cssText = `width: calc(100% / ${validSize}); height: calc(100% / ${validSize}); display: inline-block; background-color: rgb(${rgbValue1}, ${rgbValue2}, ${rgbValue3}); opacity: ${e.target.style.opacity};`;
             e.target.style.opacity =  `calc(${e.target.style.opacity} + 0.1)`;
         })
     }
